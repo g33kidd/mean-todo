@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Simple Todo List</title>
+	</head>
+
+	<body>
+		
+		<div ng-controller="todoController">
+			<h2>There are currently {{todos.length}} things todo.</h2>
+			<form ng-submit="createTask()">
+				<input type="text" placeholder="What needs done?" ng-model="todoTask">
+				<button type="submit">Add Task</button>
+			</form>
+			<ul>
+				<h4>Todo:</h4>
+				<li ng-repeat="todo in todos">
+					<div ng-dblclick="deleteTask(todo)">{{ todo.task }}</div>
+				</li>
+			</ul>
+		</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-resource.js"></script>
+		<!-- //ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js -->
+		<script src="/js/app.js"></script>
+		<script src="/js/controllers/todo-controller.js"></script>
+
+	</body>
+
+</html>
